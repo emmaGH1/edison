@@ -1588,12 +1588,14 @@ tr.jev-row {
     display: none;
   }
   .sidebar-nav {
-    display: flex;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 4px;
   }
   .sidebar-nav button {
     font-size: 11px;
-    padding: 0 12px;
+    padding: 0 8px;
+    min-width: 0;
+    white-space: normal;
     height: 40px;
     justify-content: center;
     gap: 7px;
@@ -1672,6 +1674,9 @@ tr.jev-row {
   }
 }
 @media (max-width: 430px) {
+  .sidebar-nav svg {
+    display: none;
+  }
   .lab-topbar {
     gap: 11px;
   }
