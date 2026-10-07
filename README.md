@@ -29,6 +29,6 @@ Next.js App Router, TypeScript, Tailwind and generated shadcn/ui components back
 
 ## Documents
 
-[Scope](docs/PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Design](docs/DESIGN.md) · [Judge story](docs/JUDGE_STORY.md) · [Current state](docs/CURRENT_STATE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Demo](docs/DEMO.md)
+[Scope](docs/PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Design](docs/DESIGN.md) · [Judge story](docs/JUDGE_STORY.md) · [Current state](docs/CURRENT_STATE.md) · [Implementation](docs/IMPLEMENTATION.md) · [Deployment](docs/DEPLOYMENT.md) · [Demo](docs/DEMO.md)
 
-No deployment, merge, narration generation or submission is approved yet. Never commit raw data, credentials or private evidence.
+Vercel is selected for a free preview; [server-only provisioning](docs/PUBLICATION.md#vercel-preview-provisioning) keeps the derived bundle outside Git. No deployment has occurred yet. Merge, production promotion, narration generation and submission still need approval. Never commit raw data, credentials or private evidence.
