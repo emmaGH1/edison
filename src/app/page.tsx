@@ -5,6 +5,7 @@ import { Brand } from "@/components/brand";
 import { TwoPaths } from "@/components/two-paths";
 import { loadEvidence } from "@/lib/evidence/server";
 import { pct } from "@/lib/evidence/selectors";
+import { dataAttribution, hfCitation } from "@/lib/protocol";
 
 export default async function Home() {
   await connection();
@@ -59,7 +60,7 @@ export default async function Home() {
           </div>
           <div>
             <dt>Evidence window</dt>
-            <dd>2021–2024 · native stocks</dd>
+            <dd>Jun 2022–Nov 2024 · IEX-only</dd>
           </div>
           <div>
             <dt>Modeled transaction costs</dt>
@@ -106,7 +107,7 @@ export default async function Home() {
                 Respect the boundary.
               </h2>
               <p>
-                The research bundle is withheld while publication rights are unresolved. No
+                The HF/IEX-only research bundle is withheld pending publication approval. No
                 substitute results are shown. You can explore the protocol and export a method-only
                 note.
               </p>
@@ -122,6 +123,17 @@ export default async function Home() {
             : "Evidence publication withheld · no live market feed"}
         </span>
       </footer>
+      <div className="data-attribution">
+        <p>{hfCitation}</p>
+        <p>
+          <a href="https://hfdatalibrary.com">HF Data Library</a> ·{" "}
+          <a href="https://hfdatalibrary.com/pages/license">CC BY 4.0 license</a> ·{" "}
+          <a href="https://doi.org/10.5281/zenodo.19501604">Dataset DOI</a>
+        </p>
+        <p>
+          {dataAttribution} <a href="https://www.iex.io/legal/hist-data-terms">IEX terms</a>.
+        </p>
+      </div>
     </div>
   );
 }

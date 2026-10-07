@@ -22,6 +22,7 @@ import {
   type ViewId,
 } from "@/lib/evidence/selectors";
 import type { Target } from "@/lib/routing/intents";
+import { dataAttribution, hfCitation } from "@/lib/protocol";
 import { Comparison } from "./comparison";
 import { Audit } from "./audit";
 import { Method } from "./method";
@@ -179,7 +180,7 @@ export function ResearchWorkspace({
               Same opportunity set.
             </p>
             <small>
-              2021–2024 development.
+              Jun 2022–Nov 2024 · IEX-only.
               <br />
               10 bps per side.
             </small>
@@ -221,7 +222,7 @@ export function ResearchWorkspace({
                   ? "The authorized local research bundle is absent. No sample numbers have been substituted."
                   : state.status === "unavailable" && state.reason === "invalid"
                     ? "The local bundle failed integrity or schema validation. No invalid result is displayed."
-                    : "Data-publication rights are unresolved. The protocol is available, but results, trades and historical labels are not published."}
+                    : "Evidence publication has not been approved. The HF/IEX-only protocol is available, but results, trades and historical labels remain withheld."}
               </p>
               <Button onClick={() => navigate({ view: "method" })}>Inspect the method</Button>
             </section>
@@ -245,6 +246,15 @@ export function ResearchWorkspace({
               ? "Export includes permitted derived research, not raw market-data archives."
               : "Publication withheld. Export is method-only; no derived numbers or event details."}{" "}
             A human decides whether more independent testing is justified.
+            <p>{hfCitation}</p>
+            <p>
+              <a href="https://hfdatalibrary.com">HF Data Library</a> ·{" "}
+              <a href="https://hfdatalibrary.com/pages/license">CC BY 4.0 license</a> ·{" "}
+              <a href="https://doi.org/10.5281/zenodo.19501604">Dataset DOI</a>
+            </p>
+            <p>
+              {dataAttribution} <a href="https://www.iex.io/legal/hist-data-terms">IEX terms</a>.
+            </p>
           </footer>
         </main>
         <Inspector key={event?.event_id || "empty"} event={event} evidence={evidence} />

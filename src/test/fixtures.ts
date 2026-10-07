@@ -7,18 +7,18 @@ import {
 
 // Synthetic unit input only. Never imported by application routes or used as a fallback.
 export function syntheticEvidence(): Evidence {
-  const audit: ResearchEvent[] = Array.from({ length: 59 }, (_, i) => {
-    const completed = i < 55;
-    const admitted = (i >= 34 && i < 55) || i === 55 || i === 56;
-    const winner = (i >= 21 && i < 34) || (i >= 47 && i < 55);
+  const audit: ResearchEvent[] = Array.from({ length: 37 }, (_, i) => {
+    const completed = i < 34;
+    const admitted = i >= 24 && i < 34;
+    const winner = (i >= 14 && i < 24) || (i >= 30 && i < 34);
     const day = (offset: number) =>
-      new Date(Date.UTC(2021, 0, 4 + i * 15 + offset)).toISOString().slice(0, 10);
+      new Date(Date.UTC(2022, 5, 1 + i * 20 + offset)).toISOString().slice(0, 10);
     return {
       event_id: (i + 1).toString(16).padStart(16, "0"),
       symbol: (["AAPL", "MSFT", "NVDA", "AMZN", "GOOGL"] as const)[i % 5],
       signal_date: day(0),
       entry_date: day(1),
-      rule_accept: i < 25,
+      rule_accept: i < 13,
       jev_accept: admitted,
       reversed_order_accept: admitted,
       trend_choice: admitted ? "supported" : "mixed",
@@ -43,14 +43,14 @@ export function syntheticEvidence(): Evidence {
       gross_traded_notional_usd: 100000,
       annualized_one_way_turnover: 0.25,
       mean_close_invested_fraction: 0.3,
-      annual_returns: { "2021": 0.01, "2022": 0.01, "2023": 0.01, "2024": 0.01 },
+      annual_returns: { "2022": 0.01, "2023": 0.01, "2024": 0.01 },
     };
   }
   function policies(cost: number) {
     return {
-      crossover: metrics(59, 55, cost),
-      rule_filter: metrics(25, 24, cost),
-      jev: metrics(23, 21, cost),
+      crossover: metrics(37, 34, cost),
+      rule_filter: metrics(13, 13, cost),
+      jev: metrics(10, 10, cost),
       buy_hold: metrics(5, 0, cost),
     };
   }
@@ -63,39 +63,53 @@ export function syntheticEvidence(): Evidence {
     max_drawdown: -0.06,
   };
   return {
-    version: "edison-evidence-v1",
+    version: "edison-evidence-v2",
     source_hashes: { ...sourceDigests },
-    period: { start: "2021-01-01", end: "2024-12-31", layer: "native-stock development" },
+    period: { start: "2022-06-01", end: "2024-11-29", layer: "IEX-only native-stock development" },
+    source: {
+      provider: "HF Data Library",
+      venue: "IEX-only",
+      version: "raw 1-minute bars",
+      license: "CC BY 4.0 compilation/documentation",
+      attribution:
+        "Data provided for free by IEX. By accessing or using IEX Historical Data, you agree to the IEX Historical Data Terms of Use.",
+    },
     cost_bps_per_side: 10,
     results: policies(10),
     cost_scenarios: { "0": policies(0), "5": policies(5), "10": policies(10), "20": policies(20) },
     audit,
-    featured_event_ids: [audit[21].event_id, audit[0].event_id],
-    equity: Array.from({ length: 49 }, (_, i) => ({
-      date: i === 0 ? "2021-01-04" : new Date(Date.UTC(2021, i, 0)).toISOString().slice(0, 10),
-      crossover: 100000 + (10000 * i) / 48,
-      jev: 100000 + (10000 * i) / 48,
-      rule_filter: 100000 + (10000 * i) / 48,
-      buy_hold: 100000 + (10000 * i) / 48,
+    featured_event_ids: [audit[14].event_id, audit[0].event_id],
+    equity: Array.from({ length: 31 }, (_, i) => ({
+      date:
+        i === 0
+          ? "2022-06-01"
+          : i === 30
+            ? "2024-11-29"
+            : new Date(Date.UTC(2022, i + 5, 0)).toISOString().slice(0, 10),
+      crossover: 100000 + (10000 * i) / 30,
+      jev: 100000 + (10000 * i) / 30,
+      rule_filter: 100000 + (10000 * i) / 30,
+      buy_hold: 100000 + (10000 * i) / 30,
     })),
     gate_checks: {
       healthy_complete_run: true,
       option_order_stable: true,
-      at_least_20_completed: true,
+      at_least_20_completed: false,
       sharpe_beats_both: false,
       cagr_at_least_crossover: false,
       drawdown_no_worse_than_both: true,
     },
     api: {
-      calls: 118,
+      calls: 74,
       reported_cost: "0",
-      valid_responses: 118,
+      valid_responses: 74,
       option_order_admission_disagreements: 0,
       option_order_admission_disagreement_fraction: 0,
       median_latency_seconds: 0.3,
     },
     ex_post_exposure_diagnostics: { rule_filter: { ...diagnostic }, jev: { ...diagnostic } },
     advance_gate_passed: false,
-    holdout_read: false,
+    market_price_reserve_read: false,
+    corporate_action_reserve_fully_unopened: false,
   };
 }

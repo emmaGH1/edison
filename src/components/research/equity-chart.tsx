@@ -97,7 +97,7 @@ export function EquityChart({ evidence }: { evidence: Evidence }) {
               </text>
             </g>
           ))}
-          {["2021", "2022", "2023", "2024"].map((year) => {
+          {["2022", "2023", "2024"].map((year) => {
             const i = rows.findIndex((r) => r.date.startsWith(year));
             return (
               <text key={year} className="chart-label" x={x(i)} y={height - 5} textAnchor="middle">

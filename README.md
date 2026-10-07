@@ -17,7 +17,9 @@ No key is required to run the interface. Market-data and ElevenLabs credentials 
 
 ## Evidence is private
 
-Frozen research and raw captures are excluded while publication rights are unresolved. Missing evidence is explicit, not replaced by fake numbers. Public production withholds evidence by default. Access to Alpaca is not redistribution permission.
+The replacement research uses free HF Data Library raw IEX-only bars for June 2022–November 2024, not the old Alpaca results. HF licenses its compilation/documentation under CC BY 4.0; upstream IEX attribution and terms also apply. Source attribution, changes and venue limitations are included in the interface and notes.
+
+Raw captures and private derived bundles remain outside Git. Missing evidence is explicit, not replaced by fake numbers. Public production still withholds evidence by default until Emma explicitly approves publication. No paid data or model fallback.
 
 The permission-safe export contains selected view, protocol, assumptions, sources and limitations. Derived results remain excluded until documented rights and explicit publication approval.
 

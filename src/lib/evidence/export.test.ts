@@ -16,7 +16,8 @@ test("method-only note excludes results, events and equity while preserving scop
   expect(note).not.toContain("ffffffffffffffff");
   expect(note).not.toContain("Captured development comparison");
   expect(note).not.toContain("Source integrity receipts");
-  expect(note).toContain("alpaca.markets/support/redistribute-alpaca-api");
+  expect(note).toContain("hfdatalibrary.com/pages/license");
+  expect(note).toContain("Data provided for free by IEX.");
 });
 test("explicitly permitted note references captured metrics and only the selected event", () => {
   const data = syntheticEvidence();

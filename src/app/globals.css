@@ -486,10 +486,24 @@ main:focus {
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  padding: 23px 4% 65px;
+  padding: 23px 4%;
   border-top: 1px solid var(--line);
   color: var(--subtle);
   font-size: 11px;
+}
+.data-attribution {
+  padding: 0 4% 40px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.data-attribution p + p,
+.lab-footer p {
+  margin-top: 8px;
+}
+.data-attribution a,
+.lab-footer a {
+  text-decoration: underline;
 }
 .lab {
   min-height: 100vh;

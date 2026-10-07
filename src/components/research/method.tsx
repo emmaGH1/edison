@@ -58,8 +58,8 @@ export function Method({ evidence, approved }: { evidence: Evidence | null; appr
             <div>
               <h2>Advancement gate: failed.</h2>
               <p>
-                Reduced drawdown did not offset failure on CAGR and Sharpe. The product preserves
-                that conclusion.
+                Reduced drawdown did not offset failure on CAGR, Sharpe and the
+                20-completed-position minimum. The product preserves that conclusion.
               </p>
             </div>
           </div>

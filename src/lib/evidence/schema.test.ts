@@ -10,7 +10,12 @@ describe.skipIf(!existsSync(path))("authorized local frozen bundle (not shipped)
   });
   test("rejects a changed gate, unknown fields and reserved history", () => {
     const data = JSON.parse(readFileSync(path, "utf8"));
-    expect(evidenceSchema.safeParse({ ...data, holdout_read: true }).success).toBe(false);
+    expect(evidenceSchema.safeParse({ ...data, market_price_reserve_read: true }).success).toBe(
+      false,
+    );
+    expect(
+      evidenceSchema.safeParse({ ...data, corporate_action_reserve_fully_unopened: true }).success,
+    ).toBe(false);
     expect(evidenceSchema.safeParse({ ...data, advance_gate_passed: true }).success).toBe(false);
     expect(evidenceSchema.safeParse({ ...data, secret: "not allowed" }).success).toBe(false);
     expect(

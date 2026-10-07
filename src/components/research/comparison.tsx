@@ -165,8 +165,8 @@ export function Comparison({
             <strong>Less exposure is not a matched experiment.</strong>
             <p>
               The rule filter’s {pct(evidence.results.rule_filter.mean_close_invested_fraction)}{" "}
-              exposure was almost identical to Jev’s. Compare both before attributing the safer
-              chart to AI.
+              exposure differs from Jev’s {pct(jev.mean_close_invested_fraction)}. Compare both
+              before attributing the safer chart to AI.
             </p>
           </div>
         </div>
@@ -222,7 +222,7 @@ export function Comparison({
         <div className="panel-head">
           <div>
             <h2>Year by year, not one headline.</h2>
-            <p>Net portfolio calendar-year returns · marked daily</p>
+            <p>Net portfolio calendar-year returns · 2022 and 2024 are partial years</p>
           </div>
         </div>
         <div className="table-scroll">
@@ -238,7 +238,7 @@ export function Comparison({
               </tr>
             </thead>
             <tbody>
-              {(["2021", "2022", "2023", "2024"] as const).map((year) => (
+              {(["2022", "2023", "2024"] as const).map((year) => (
                 <tr key={year}>
                   <th scope="row">{year}</th>
                   {policyIds.map((p) => (
@@ -249,7 +249,10 @@ export function Comparison({
             </tbody>
           </table>
         </div>
-        <p className="panel-note">Four development years are not four independent tests.</p>
+        <p className="panel-note">
+          June–December 2022 and January–November 2024 are partial periods. These are not
+          independent tests.
+        </p>
       </section>
     </>
   );

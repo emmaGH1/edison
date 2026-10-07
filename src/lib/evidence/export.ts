@@ -1,6 +1,12 @@
 import { policyIds, policyNames, type Evidence } from "./schema";
 import { money, pct, type FilterId, type ViewId } from "./selectors";
-import { assumptions, evidenceLimits, researchSources } from "@/lib/protocol";
+import {
+  assumptions,
+  dataAttribution,
+  evidenceLimits,
+  hfCitation,
+  researchSources,
+} from "@/lib/protocol";
 
 export function buildResearchNote({
   view,
@@ -41,6 +47,8 @@ export function buildResearchNote({
     "",
     "## Sources",
     ...researchSources.map((source) => "- " + source.label + ": " + source.url),
+    hfCitation,
+    dataAttribution,
     "",
     "## Human decision",
     "Further independent testing is a human research decision. This note is not investment advice, a trading instruction or proof of an edge.",
@@ -50,7 +58,7 @@ export function buildResearchNote({
       "",
       "## Captured development comparison",
       "Primary all-in modeled cost: 10 bps per side.",
-      "Advancement gate: failed. Jev did not meet the CAGR and Sharpe thresholds.",
+      "Advancement gate: failed. Jev did not meet CAGR, Sharpe or the 20-completed-position minimum.",
       "",
       "| Policy | CAGR | Drawdown | Sharpe | Exposure | Entries | Cost |",
       "|---|---:|---:|---:|---:|---:|---:|",

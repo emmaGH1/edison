@@ -41,11 +41,11 @@ export function ruleRoute(question: string): RuleRoute {
   )
     return { type: "unsupported" };
   const limits =
-    /\b(token|bitget|transfer|limits?|limitation|holdout|out.of.sample|2025|2026|validated|generaliz|publication|permission|redistribut)/.test(
+    /\b(token|bitget|transfer|limits?|limitation|holdout|out.of.sample|2025|2026|validated|generaliz|publication|permission|redistribut|iex|coverage|source|dividend|corporate.action|data.quality|split)/.test(
       text,
     );
   const years = [...text.matchAll(/\b(20\d{2})\b/g)].map((match) => match[1]);
-  if (years.some((year) => !["2021", "2022", "2023", "2024"].includes(year)) && !limits)
+  if (years.some((year) => !["2022", "2023", "2024"].includes(year)) && !limits)
     return { type: "unsupported" };
   const ticker = text.match(/\b(?:ticker|symbol)\s+([a-z]{1,6})\b/);
   if (ticker && !["aapl", "msft", "nvda", "amzn", "googl"].includes(ticker[1]))

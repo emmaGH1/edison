@@ -133,9 +133,9 @@ export function Audit({
           })}
         </div>
         <p className="panel-note">
-          Four baseline positions remained open at the end of 2024 and are excluded here. The
-          entry-opportunity count includes those unfinished episodes. Winners/losers are known only
-          after the recorded decision.
+          {evidence.results.crossover.open_trades} baseline positions remained open at the November
+          2024 cutoff and are excluded here. The entry-opportunity count includes those unfinished
+          episodes. Winners/losers are known only after the recorded decision.
         </p>
       </section>
       <section className="panel trade-list">

@@ -52,7 +52,7 @@ test("digest failures, missing files and invalid schemas never substitute data",
   files(undefined, "bad digest");
   expect(await loadEvidence()).toEqual({ status: "unavailable", reason: "invalid" });
   const bad = syntheticEvidence();
-  Object.assign(bad, { holdout_read: true });
+  Object.assign(bad, { market_price_reserve_read: true });
   files(bad);
   expect(await loadEvidence()).toEqual({ status: "unavailable", reason: "invalid" });
   vi.mocked(readFile).mockRejectedValue(Object.assign(new Error("Missing"), { code: "ENOENT" }));

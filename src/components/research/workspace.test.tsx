@@ -54,9 +54,9 @@ test("all-trade audit filters and inspector maintain a stable event reference", 
       jevEnabled={false}
     />,
   );
-  expect(screen.getByText("Showing 55 of 55 completed trades.")).toBeInTheDocument();
+  expect(screen.getByText("Showing 34 of 34 completed trades.")).toBeInTheDocument();
   fireEvent.click(screen.getAllByRole("button", { name: "Missed winners" })[1]);
-  expect(screen.getByText("Showing 13 of 55 completed trades.")).toBeInTheDocument();
+  expect(screen.getByText("Showing 10 of 34 completed trades.")).toBeInTheDocument();
   expect(window.location.search).toContain("filter=missed_winners");
   const id = data.audit[22].event_id;
   fireEvent.click(screen.getByRole("button", { name: "Inspect event " + id }));
@@ -70,16 +70,18 @@ test("all-trade audit filters and inspector maintain a stable event reference", 
 test("chart controls and table expose actual observations without generated values", () => {
   render(<EquityChart evidence={data} />);
   const slider = screen.getByRole("slider", { name: "Chart observation date" });
-  expect(slider).toHaveValue("48");
+  expect(slider).toHaveValue(String(data.equity.length - 1));
   fireEvent.click(screen.getByRole("button", { name: "Previous chart observation" }));
-  expect(slider).toHaveValue("47");
+  expect(slider).toHaveValue(String(data.equity.length - 2));
   fireEvent.change(slider, { target: { value: "0" } });
   expect(screen.getByRole("button", { name: "Previous chart observation" })).toBeDisabled();
   expect(screen.getAllByText("$100,000")).toHaveLength(4);
   const toggle = screen.getByRole("button", { name: "Buy & hold" });
   fireEvent.click(toggle);
   expect(toggle).toHaveAttribute("aria-pressed", "false");
-  expect(screen.getByText("Accessible data table · 49 observations")).toBeInTheDocument();
+  expect(
+    screen.getByText(`Accessible data table · ${data.equity.length} observations`),
+  ).toBeInTheDocument();
 });
 test("bounded question feedback routes only supported output", async () => {
   const navigate = vi.fn();
