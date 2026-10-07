@@ -15,13 +15,13 @@ npm run dev
 
 No key is required to run the interface. Market-data and ElevenLabs credentials do not belong in this app. See `.env.example` for server-only feature/publication flags.
 
-## Evidence is private
+## Evidence and publication
 
 The replacement research uses free HF Data Library raw IEX-only bars for June 2022–November 2024, not the old Alpaca results. HF licenses its compilation/documentation under CC BY 4.0; upstream IEX attribution and terms also apply. Source attribution, changes and venue limitations are included in the interface and notes.
 
-Raw captures and private derived bundles remain outside Git. Missing evidence is explicit, not replaced by fake numbers. Public production still withholds evidence by default until Emma explicitly approves publication. No paid data or model fallback.
+Emma approved public use of the validated HF/IEX-derived results with attribution and limitations; see the scoped [publication record](docs/PUBLICATION.md). Raw captures and derived runtime bundles remain outside Git. Missing evidence is explicit, not replaced by fake numbers. Committed production defaults still withhold evidence; an approved runtime must configure both server-only publication values and privately provision the validated bundle. No paid data or model fallback.
 
-The permission-safe export contains selected view, protocol, assumptions, sources and limitations. Derived results remain excluded until documented rights and explicit publication approval.
+The permission-safe export contains selected view, protocol, assumptions, sources and limitations. Approved runtimes also include derived comparisons and an optional selected completed event; unapproved or missing/invalid-evidence runtimes remain method-only. No raw archive is exported.
 
 ## Stack
 

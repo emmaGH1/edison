@@ -1,12 +1,12 @@
 # Current state
 
-Scope, architecture and design probe approved. The production app implements the landing page, comparison, full decision audit, inspector, method/limits, permission-aware export, read-only Bitget context and bounded routing. Evidence and credentials remain private. The minimal GitHub base is initialized with approval; the implementation is delivered through a separate feature PR.
+Scope, architecture and design probe approved. The production app implements the landing page, comparison, full decision audit, inspector, method/limits, permission-aware export, read-only Bitget context and bounded routing. Emma has approved derived HF/IEX results only; raw captures, runtime bundles and credentials remain outside Git. The minimal GitHub base is initialized with approval; the implementation is delivered through a separate feature PR.
 
 ## Validation
 
-The HF/IEX v2 replacement passes local formatting, lint, typecheck, private evidence validation, production build, publication scan, dependency audit and production HTTP checks. The suite has 74 passing local tests including two against the ignored private bundle; public CI skips those two when absent. Four opt-in network tests are skipped by default. Dependency audit reports zero vulnerabilities. HTTP checks cover local/withheld rendering, attribution, security headers, method-only export even in private local mode, bounded routing, 2021 refusal and cross-origin refusal. Build artifacts contain neither private featured-event identifier.
+The HF/IEX v2 replacement passes local formatting, lint, typecheck, private evidence validation, production build, publication scan, dependency audit and production HTTP checks. The suite has 81 passing local tests including two against the ignored private bundle; public CI skips those two when absent. Four opt-in network tests are skipped by default. Dependency audit reports zero vulnerabilities. HTTP checks cover seven configurations: withheld, local unapproved, approval without reference, reference without approval, approved valid, approved missing and approved invalid. Approved valid exports include the comparison and only a selected completed event; other cases stay method-only. Attribution, security headers, bounded routing, 2021 refusal and cross-origin refusal pass. Build artifacts contain neither private featured-event identifier.
 
-Earlier approved browser testing passed desktop/mobile flows and the navigation fix at 320/390/760/761px against the previous evidence contract. Those recordings are historical coverage, not proof of the HF/IEX migration. The new approved retest is outstanding: two testing-agent handoffs returned a subscription usage-limit error before testing. A setup-only recording was stopped and is not validation evidence. Physical devices and live provider-failure/confident-Jev routing remain untested.
+Earlier approved browser testing passed desktop/mobile flows and the navigation fix at 320/390/760/761px against the previous evidence contract. Those recordings are historical coverage, not proof of the HF/IEX migration. The new approved retest is outstanding: three testing-agent handoffs (including a retry after publication approval) returned a subscription usage-limit error before testing. A setup-only recording was stopped and is not validation evidence. Physical devices and live provider-failure/confident-Jev routing remain untested.
 
 ## Evidence replacement
 
@@ -16,7 +16,7 @@ Full-history files were acquired only under Emma's blind-extraction approval, an
 
 ## Release gates
 
-- The HF/IEX licensing/attribution route is documented; Emma's explicit approval to publish derived evidence is still outstanding. Production approval remains false, exports remain method-only, and raw/derived bundles stay outside Git. Old Alpaca permission is unresolved but no longer the proposed demo-data route.
+- Derived HF/IEX publication is approved with attribution and limitations; [the scoped permission record](PUBLICATION.md) supplies the runtime reference. Committed defaults remain false/withheld, and raw/derived runtime bundles stay outside Git. Approved runtimes may show derived results and selected-event notes; unapproved or missing/invalid-evidence runtimes stay method-only. Old Alpaca evidence remains private.
 - The updated desktop/mobile browser retest must finish when the testing agent is available; do not claim it passed from shell tests.
 - The public Bitget metadata check passes. Free-Jev availability varies: initial live checks returned HTTP 403; later browser testing received a low-confidence structured result. Deterministic routing/fallback remains available and no paid fallback is used.
 - Hosting/deployment, public demo content and final submission approval outstanding.

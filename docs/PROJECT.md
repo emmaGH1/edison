@@ -12,4 +12,4 @@ Emma approved the $0 HF Data Library replacement, shorter period and private bli
 
 Emma approved Edison, the Light Research Lab probe and Next.js architecture, supplied public GitHub and authorized routine implementation. Fundamental scope/design/publication/deployment/submission decisions remain with her.
 
-Public code is separate from private evidence. The old Alpaca-derived bundle stays private and is never relabeled as HF evidence. Public evidence still needs explicit approval; no merge or deployment is approved.
+Public code is separate from privately provisioned evidence. The old Alpaca-derived bundle stays private and is never relabeled as HF evidence. Emma approved public use of the validated HF/IEX-derived results only, with attribution and limitations; see [the scoped record](PUBLICATION.md). Raw data/captures and runtime bundles remain outside Git; committed defaults remain withheld. No merge or deployment is approved.

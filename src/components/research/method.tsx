@@ -172,7 +172,7 @@ export function Method({ evidence, approved }: { evidence: Evidence | null; appr
         <p>
           {approved
             ? "Publication is explicitly enabled by the operator. Only permitted derived notes—not raw archives—can be exported."
-            : "Derived research publication is not approved. Export contains view, protocol, assumptions, sources and limitations only; no metrics, events or equity values."}
+            : "Derived research publication is not enabled in this runtime. Export contains view, protocol, assumptions, sources and limitations only; no metrics, events or equity values."}
         </p>
         <div className="source-list">
           {researchSources.map((source) => (

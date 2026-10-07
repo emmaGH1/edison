@@ -134,7 +134,7 @@ export function Inspector({
           <p>
             {evidence
               ? "Select a completed trade to inspect its recorded decision."
-              : "The private research bundle is not available here. Publication permission is unresolved; no results or historical AI labels have been invented."}
+              : "The validated research bundle is not available here. No results or historical AI labels have been invented."}
           </p>
         </div>
       )}

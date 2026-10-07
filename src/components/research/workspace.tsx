@@ -222,7 +222,7 @@ export function ResearchWorkspace({
                   ? "The authorized local research bundle is absent. No sample numbers have been substituted."
                   : state.status === "unavailable" && state.reason === "invalid"
                     ? "The local bundle failed integrity or schema validation. No invalid result is displayed."
-                    : "Evidence publication has not been approved. The HF/IEX-only protocol is available, but results, trades and historical labels remain withheld."}
+                    : "Evidence publication is not enabled in this runtime. The HF/IEX-only protocol is available, but results, trades and historical labels remain withheld."}
               </p>
               <Button onClick={() => navigate({ view: "method" })}>Inspect the method</Button>
             </section>

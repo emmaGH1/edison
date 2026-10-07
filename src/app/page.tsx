@@ -68,7 +68,7 @@ export default async function Home() {
           </div>
           <div>
             <dt>{evidence ? "The experiment’s verdict" : "Evidence availability"}</dt>
-            <dd>{evidence ? "AI improvement not proven" : "Publication permission pending"}</dd>
+            <dd>{evidence ? "AI improvement not proven" : "Evidence unavailable here"}</dd>
           </div>
         </dl>
         {evidence ? (
@@ -107,9 +107,8 @@ export default async function Home() {
                 Respect the boundary.
               </h2>
               <p>
-                The HF/IEX-only research bundle is withheld pending publication approval. No
-                substitute results are shown. You can explore the protocol and export a method-only
-                note.
+                The HF/IEX-only research bundle is unavailable in this runtime. No substitute
+                results are shown. You can explore the protocol and export a method-only note.
               </p>
             </div>
           </section>

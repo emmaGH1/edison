@@ -42,7 +42,7 @@ export function TwoPaths({ audit }: { audit?: ResearchEvent[] }) {
         <desc id="paths-desc">
           {audit
             ? `${count} entry opportunities. Unfiltered admits all ${count}; Jev admits ${accepted} and skips ${count! - accepted!}. This is a schematic, not a performance chart.`
-            : "Method schematic: the same strategy signals enter an unfiltered policy or an AI entry gate. Results are withheld pending data-publication permission."}
+            : "Method schematic: the same strategy signals enter an unfiltered policy or an AI entry gate. Results are unavailable in this runtime."}
         </desc>
         <path
           className="art-rule"
